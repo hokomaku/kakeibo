@@ -37,7 +37,7 @@ export default function App() {
   const [budgetRows, setBudgetRows] = useState<any[]>([])
   const [creditTotals, setCreditTotals] = useState<any[]>([])
   const [budgetMonth, setBudgetMonth] = useState(initialMonth)
-  const [budgetTotal, setBudgetTotal] = useState('')
+//  const [budgetTotal, setBudgetTotal] = useState('')
   const [budgetCategory, setBudgetCategory] = useState('')
   const [budgetAmount, setBudgetAmount] = useState('')
   const [form, setForm] = useState({
@@ -91,7 +91,7 @@ export default function App() {
   const monthTx = useMemo(() => transactions.filter(t => t.entry_date.startsWith(month)), [transactions, month])
   const income = monthTx.filter(t => t.kind === 'income').reduce((s,t) => s+t.amount_yen,0)
   const expense = monthTx.filter(t => t.kind === 'expense').reduce((s,t) => s+t.amount_yen,0)
-  const creditSum = monthTx.filter(t => t.kind === 'expense' && t.is_credit).reduce((s,t) => s+t.amount_yen,0)
+// const creditSum = monthTx.filter(t => t.kind === 'expense' && t.is_credit).reduce((s,t) => s+t.amount_yen,0)
   const moveMonth = (delta: number) => {
     const d = new Date(Number(month.slice(0,4)), Number(month.slice(5,7))-1+delta, 1)
     setMonth(monthString(d))
